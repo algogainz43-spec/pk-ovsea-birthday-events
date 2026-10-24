@@ -73,13 +73,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
           {/* Zone 3: Primary Action CTA */}
           <div className="hidden sm:flex items-center gap-3 shrink-0">
-            <button
-              onClick={onOpenBooking}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1A1A1A] hover:bg-[#2A2A2A] border border-[#D4AF37]/40 rounded-xl transition-all duration-200 hover:shadow-md hover:border-[#D4AF37] whitespace-nowrap shrink-0 group"
+            <a
+              href="https://wa.me/447514592130"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-wider uppercase text-white bg-[#1A1A1A] hover:bg-[#2A2A2A] border border-[#D4AF37]/50 rounded-xl transition-all duration-200 hover:shadow-md hover:border-[#D4AF37] whitespace-nowrap shrink-0 group"
             >
-              <span>Consult Concierge</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </button>
+              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+              <span>Book via WhatsApp</span>
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -106,16 +108,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               </a>
             ))}
             <div className="pt-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenBooking();
-                }}
+              <a
+                href="https://wa.me/447514592130"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-semibold uppercase tracking-wider text-white bg-[#1A1A1A] border border-[#D4AF37]/50 rounded-xl"
               >
-                <MessageCircle className="w-4 h-4 text-[#D4AF37]" />
-                <span>Consult Concierge</span>
-              </button>
+                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <span>Book via WhatsApp</span>
+              </a>
             </div>
           </div>
         )}

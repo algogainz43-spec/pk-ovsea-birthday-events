@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   ShieldCheck,
-  ChevronDown,
   Instagram,
   Facebook,
   Linkedin,
@@ -9,11 +8,12 @@ import {
   Lock,
   ArrowUp,
   Mail,
-  Phone
+  Phone,
+  X
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const [accordionOpen, setAccordionOpen] = useState(false);
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -51,6 +51,14 @@ export const Footer: React.FC = () => {
               <li><a href="#about" className="hover:text-[#D4AF37]">How It Works</a></li>
               <li><a href="#why-us" className="hover:text-[#D4AF37]">Why Us</a></li>
               <li><a href="#contact" className="hover:text-[#D4AF37]">Contact</a></li>
+              <li>
+                <button
+                  onClick={() => setIsPrivacyModalOpen(true)}
+                  className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Privacy Policy
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -75,7 +83,14 @@ export const Footer: React.FC = () => {
             <div className="text-xs text-neutral-400 space-y-1.5">
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>UK: +44 7700 900077</span>
+                <a
+                  href="https://wa.me/447514592130"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#25D366] transition-colors"
+                >
+                  UK / WhatsApp: +44 7514 592130
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
@@ -129,65 +144,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Simple & clear Privacy Accordion */}
-        <div className="my-6 rounded-xl bg-neutral-900 border border-neutral-800 overflow-hidden">
-          <button
-            onClick={() => setAccordionOpen(!accordionOpen)}
-            className="w-full py-3.5 px-5 flex items-center justify-between text-left hover:bg-neutral-850 transition-colors focus:outline-none cursor-pointer"
-          >
-            <div className="flex items-center gap-2.5">
-              <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
-              <span className="text-xs font-semibold text-white">
-                Privacy &amp; Overseas Client Protection Policy
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5 text-xs text-[#D4AF37]">
-              <span>{accordionOpen ? 'Hide' : 'Read'}</span>
-              <ChevronDown
-                className={`w-4 h-4 transform transition-transform duration-200 ${
-                  accordionOpen ? 'rotate-180' : ''
-                }`}
-              />
-            </div>
-          </button>
-
-          {accordionOpen && (
-            <div className="px-5 pb-5 pt-1 text-xs text-neutral-400 space-y-3 border-t border-neutral-800 bg-neutral-950/40">
-              <div className="flex items-center gap-2 text-white font-semibold pt-2">
-                <Lock className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>Your Privacy Is 100% Protected</span>
-              </div>
-              <p className="leading-relaxed">
-                We strictly protect the privacy of overseas clients traveling to Pakistan:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800">
-                  <div className="text-[#D4AF37] font-semibold mb-0.5">1. Confidentiality</div>
-                  <p className="text-[11px] leading-relaxed">
-                    We never disclose your overseas country, flight dates, or booking values to third-party workers.
-                  </p>
-                </div>
-                <div className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800">
-                  <div className="text-[#D4AF37] font-semibold mb-0.5">2. Safe Photos &amp; Video</div>
-                  <p className="text-[11px] leading-relaxed">
-                    Photos and videos of your children and family are sent directly to your private drive and never posted online without your consent.
-                  </p>
-                </div>
-                <div className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800">
-                  <div className="text-[#D4AF37] font-semibold mb-0.5">3. GDPR Compliant</div>
-                  <p className="text-[11px] leading-relaxed">
-                    Your contact and payment data are handled securely according to UK and EU GDPR standards.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Bottom line */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 text-xs text-neutral-500">
-          <div>
-            &copy; {new Date().getFullYear()} Pk Ovsea Services. All rights reserved.
+        {/* Bottom line with Privacy Policy Link */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs text-neutral-500">
+          <div className="flex flex-wrap items-center gap-3">
+            <span>&copy; {new Date().getFullYear()} Pk Ovsea Services. All rights reserved.</span>
+            <span>&middot;</span>
+            <button
+              onClick={() => setIsPrivacyModalOpen(true)}
+              className="text-neutral-400 hover:text-[#D4AF37] transition-colors cursor-pointer underline underline-offset-4"
+            >
+              Privacy Policy
+            </button>
           </div>
           <button
             onClick={scrollToTop}
@@ -198,6 +165,64 @@ export const Footer: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Clean Privacy Policy Modal Popup */}
+      {isPrivacyModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-fadeIn">
+          <div className="bg-[#1A1A1A] text-neutral-300 rounded-2xl max-w-xl w-full p-6 sm:p-7 border border-[#D4AF37]/50 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={() => setIsPrivacyModalOpen(false)}
+              className="absolute top-4 right-4 text-neutral-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2.5 mb-3 text-[#D4AF37]">
+              <ShieldCheck className="w-5 h-5" />
+              <h3 className="text-lg font-serif font-bold text-white">
+                Privacy Policy &amp; Overseas Client Protection
+              </h3>
+            </div>
+
+            <p className="text-xs text-neutral-400 leading-relaxed mb-4">
+              We strictly protect the privacy of overseas clients traveling to Pakistan:
+            </p>
+
+            <div className="space-y-3 mb-6 text-xs text-neutral-300">
+              <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800">
+                <div className="text-[#D4AF37] font-semibold mb-1">1. Absolute Confidentiality</div>
+                <p className="text-[11px] text-neutral-400 leading-relaxed">
+                  We never disclose your overseas country, flight dates, or booking values to third-party workers or vendors.
+                </p>
+              </div>
+
+              <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800">
+                <div className="text-[#D4AF37] font-semibold mb-1">2. Safe Media &amp; Child Protection</div>
+                <p className="text-[11px] text-neutral-400 leading-relaxed">
+                  Photos and videos of your children and family are sent directly to your private drive and never posted online without your written consent.
+                </p>
+              </div>
+
+              <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800">
+                <div className="text-[#D4AF37] font-semibold mb-1">3. GDPR Compliant</div>
+                <p className="text-[11px] text-neutral-400 leading-relaxed">
+                  Your contact and payment data are handled securely according to UK and EU GDPR standards.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-end pt-2 border-t border-neutral-800">
+              <button
+                onClick={() => setIsPrivacyModalOpen(false)}
+                className="px-5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider text-[#1A1A1A] bg-[#D4AF37] hover:bg-[#c5a028] transition-colors cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };

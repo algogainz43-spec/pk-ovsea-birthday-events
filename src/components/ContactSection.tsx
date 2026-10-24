@@ -60,7 +60,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialStyle }) 
 Please share package availability and pricing.`;
 
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/447514592130?text=${encoded}`, '_blank');
   };
 
   return (
@@ -90,9 +90,21 @@ Please share package availability and pricing.`;
                 Prefer to chat directly? Our team is available on WhatsApp daily during UK, US, and UAE daytime hours.
               </p>
 
+              <div className="pt-1">
+                <a
+                  href="https://wa.me/447514592130"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-xs uppercase tracking-wider transition-all duration-200 shadow-xs cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Book via WhatsApp</span>
+                </a>
+              </div>
+
               <div className="space-y-3 pt-2">
                 <a
-                  href="https://wa.me/?text=Hello!%20I%20live%20abroad%20and%20am%20planning%20an%20event%20in%20Pakistan."
+                  href="https://wa.me/447514592130"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 p-3 rounded-xl bg-white border border-neutral-200 hover:border-[#25D366] transition-colors group cursor-pointer"
@@ -103,7 +115,7 @@ Please share package availability and pricing.`;
                   <div>
                     <div className="text-[11px] text-neutral-500 font-semibold uppercase">WhatsApp Direct</div>
                     <div className="text-xs font-bold text-[#1A1A1A] group-hover:text-[#25D366]">
-                      Chat with Event Specialist
+                      +44 7514 592130
                     </div>
                   </div>
                 </a>
@@ -116,18 +128,6 @@ Please share package availability and pricing.`;
                     <div className="text-[11px] text-neutral-500 font-semibold uppercase">Email Us</div>
                     <div className="text-xs font-bold text-[#1A1A1A]">
                       concierge@pkovseaservices.com
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-neutral-200">
-                  <div className="w-8 h-8 rounded-lg bg-neutral-100 flex items-center justify-center text-neutral-700">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] text-neutral-500 font-semibold uppercase">Offices</div>
-                    <div className="text-xs font-bold text-[#1A1A1A]">
-                      London &middot; Lahore DHA &middot; Islamabad
                     </div>
                   </div>
                 </div>

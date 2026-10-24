@@ -9,10 +9,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onExploreStyles, onOpenBooking }) => {
   const handleWhatsAppDirect = () => {
-    const text = encodeURIComponent(
-      "Hello Pk Ovsea Services! I live abroad and am planning a birthday/event in Pakistan. I'd love to chat with an event specialist."
-    );
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    window.open('https://wa.me/447514592130', '_blank');
   };
 
   return (
@@ -49,13 +46,15 @@ export const Hero: React.FC<HeroProps> = ({ onExploreStyles, onOpenBooking }) =>
               <ArrowRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button
-              onClick={handleWhatsAppDirect}
+            <a
+              href="https://wa.me/447514592130"
+              target="_blank"
+              rel="noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-semibold tracking-wide text-[#1A1A1A] bg-white hover:bg-neutral-50 border border-neutral-300 rounded-xl transition-all duration-200 shadow-xs hover:border-[#D4AF37] group cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span>Book Via WhatsApp</span>
-            </button>
+              <span>Book via WhatsApp</span>
+            </a>
           </div>
         </div>
 

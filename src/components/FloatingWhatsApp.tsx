@@ -5,10 +5,7 @@ export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
 
   const handleClick = () => {
-    const text = encodeURIComponent(
-      "Hello Pk Ovsea Services! I am reaching out from overseas regarding event & birthday planning in Pakistan."
-    );
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    window.open('https://wa.me/447514592130', '_blank');
   };
 
   return (
