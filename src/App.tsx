@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { CoreServices } from './components/CoreServices';
+import { EventMoments } from './components/EventMoments';
 import { SignatureStyling } from './components/SignatureStyling';
 import { AboutUs } from './components/AboutUs';
 import { WhyChooseUs } from './components/WhyChooseUs';
@@ -38,25 +39,28 @@ export default function App() {
 
       {/* Main Page Flow */}
       <main className="flex-1">
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section with 16:9 Showcase Banner */}
         <Hero
           onExploreStyles={scrollToStyles}
           onOpenBooking={scrollToContact}
         />
 
-        {/* 2. Core Services Grid */}
+        {/* 2. Visual-First Core Services (Photo-driven cards) */}
         <CoreServices onConsult={scrollToContact} />
 
-        {/* 3. Signature Styling System (UK vs Pakistani Style) */}
+        {/* 3. Event Moments Gallery & Experience Reel */}
+        <EventMoments />
+
+        {/* 4. Signature Styling Feature (UK vs Pakistani Style) */}
         <SignatureStyling onSelectStyle={handleSelectStyle} />
 
-        {/* 4. About Us & The Overseas Bridge */}
+        {/* 5. About Us (How It Works & On-Ground Team) */}
         <AboutUs />
 
-        {/* 5. Why Choose Us (4 Pillars & Currency Transparency) */}
+        {/* 6. Why Choose Us (4 Simple Pillars & Currency Calculator) */}
         <WhyChooseUs onConsult={scrollToContact} />
 
-        {/* 6. Contact Us & Overseas Intake */}
+        {/* 7. Contact Us & Overseas Date Check */}
         <ContactSection initialStyle={selectedStyleForInquiry} />
       </main>
 

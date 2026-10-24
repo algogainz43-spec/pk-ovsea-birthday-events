@@ -20,10 +20,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
-    { name: 'Event Styles', href: '#styles' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Why Choose Us', href: '#why-us' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: 'Moments', href: '#gallery' },
+    { name: 'Themes', href: '#styles' },
+    { name: 'How It Works', href: '#about' },
+    { name: 'Why Us', href: '#why-us' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

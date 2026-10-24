@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Sparkles, Music, Flower2, HeartHandshake, Eye, Check } from 'lucide-react';
+import { Sparkles, Music, Check, ArrowRight } from 'lucide-react';
 import ukStyleImage from '@/src/assets/images/theme_uk_contemporary_1792275784323.jpg';
 import pakStyleImage from '@/src/assets/images/theme_pakistani_royal_1792275785052.jpg';
+import hybridImage from '@/src/assets/images/event_dhol_entrance_1792875014166.jpg';
 
 export const SignatureStyling: React.FC<{ onSelectStyle: (styleName: string) => void }> = ({
   onSelectStyle,
@@ -11,214 +12,183 @@ export const SignatureStyling: React.FC<{ onSelectStyle: (styleName: string) => 
   const themes = {
     uk: {
       id: 'uk',
-      badge: 'Minimalist & Sophisticated',
       title: 'The British Contemporary Style (UK)',
-      subtitle: 'Pastel-toned aesthetics, minimalist chic table structures, and sophisticated English garden elegance.',
+      tagline: 'Soft pastels, clean tablescapes, English high-tea vibes, and relaxed acoustic music.',
       image: ukStyleImage,
-      atmosphere: 'Understated, airy, and refined European luxury',
-      musicStyle: 'Sophisticated acoustic ambient jazz, classical cello, and gentle indie pop playlists',
-      colorPalette: ['#EAE5D9', '#B7C4B7', '#D4AF37', '#FAF7F2'],
-      features: [
-        'Pastel-toned sage, blush, and cream aesthetic palette',
-        'Minimalist chic wooden or acrylic tablescapes with custom linen runners',
-        'Sophisticated English afternoon tea party vibes with tiered porcelain displays',
-        'Subtle organic asymmetrical florals & imported baby eucalyptus',
-        'Sophisticated acoustic ambient soundscape with discreet Bose sound nodes',
-        'Custom calligraphy place cards with embossed gold foil detailing'
+      music: 'Soft acoustic guitar & relaxed ambient jazz',
+      palette: ['#EAE5D9', '#B7C4B7', '#D4AF37', '#FAF7F2'],
+      highlights: [
+        'Sage green, blush & ivory pastel palette',
+        'Minimalist table setups with custom linen & fine china',
+        'English afternoon tea treats & tiered cake display',
+        'Delicate organic florals and eucalyptus',
+        'Relaxed background acoustic music nodes'
       ],
-      idealFor: '1st Birthdays, High-Tea Celebrations, Intimate Family Milestones, and European Diaspora Gatherings.'
+      bestFor: '1st Birthdays, High-Tea Parties & Intimate Gatherings'
     },
     pakistan: {
       id: 'pakistan',
-      badge: 'Opulent & Celebratory',
       title: 'The Grand Royal Heritage Style (Pakistan)',
-      subtitle: 'Vibrant multi-colored thematic backdrops, majestic traditional dhol arrivals, and extravagant customized grand stages.',
+      tagline: 'Vibrant marigold arches, grand dhol entrance, illuminated stage, and live celebration.',
       image: pakStyleImage,
-      atmosphere: 'High-energy, joyous, majestic cultural celebration',
-      musicStyle: 'Live traditional dhol beats, Sufi instrumental fusion, and celebratory festive tracks',
-      colorPalette: ['#800020', '#D4AF37', '#E5A93B', '#1B4D3E'],
-      features: [
-        'Vibrant multi-colored thematic backdrops with handcrafted embroidery motifs',
-        'Majestic traditional dhol arrivals with royal flower petal shower protocol',
-        'Extravagant customized grand stages framed by marigolds and fresh jasmine garlands',
-        'Rich festive fairy-light canopies and brass antique Moroccan lanterns',
-        'Full high-energy celebratory musical environment with professional live DJ setup',
-        'Live jalebi, kulfi-falooda, and steaming chai stalls for authentic nostalgia'
+      music: 'Live dhol drummers & festive celebratory music',
+      palette: ['#800020', '#D4AF37', '#E5A93B', '#1B4D3E'],
+      highlights: [
+        'Vibrant marigold & fresh rose floral arches',
+        'Grand royal dhol entry with flower petal shower',
+        'Illuminated grand stage with custom royal backdrops',
+        'Fairy-light canopies and brass lanterns',
+        'Live jalebi, kulfi & fresh chai stalls'
       ],
-      idealFor: 'Grand Milestone Birthdays (18th, 21st, 50th), Multi-Generational Family Reunions & Festive Galas.'
+      bestFor: 'Milestone Birthdays (18th, 21st, 50th) & Large Family Reunions'
     },
     fusion: {
       id: 'fusion',
-      badge: 'The Best of Both Worlds',
-      title: 'The Royal Diaspora Fusion (UK-Pak Hybrid)',
-      subtitle: 'Modern European pastel ceremony tables paired with a magnificent evening Punjabi dhol entrance & feast.',
-      image: pakStyleImage, // uses Pakistani backdrop with hybrid notes
-      atmosphere: 'Effortless harmony of Western chic and Pakistani warmth',
-      musicStyle: 'Acoustic background during welcome tea transitioning into energetic celebration',
-      colorPalette: ['#F3EFE0', '#D4AF37', '#6A1B29', '#2E4057'],
-      features: [
-        'Two-phase celebration: British contemporary afternoon reception into grand evening gala',
-        'Pastel backdrop for cake-cutting & photos; dramatic illuminated stage for family speeches',
-        'Hybrid gastronomy: Gourmet live carving stations alongside traditional handi dishes',
-        'Bilingual event emcee ensuring all cousins from abroad and elders feel celebrated',
-        'Custom fusion photo booth with both British tea props and traditional dupattas',
-        'Live mocktail artisan bar serving virgin mojitos and Kashmiri rooh afza coolers'
+      title: 'The Royal Diaspora Fusion (UK + Pak)',
+      tagline: 'The best of both: modern pastel afternoon reception followed by a lively evening dhol arrival and feast.',
+      image: hybridImage,
+      music: 'Acoustic background during tea, transitioning into upbeat celebration',
+      palette: ['#F3EFE0', '#D4AF37', '#6A1B29', '#2E4057'],
+      highlights: [
+        'Afternoon pastel photo setup for cake-cutting with kids',
+        'Evening dhol entrance when elder family and cousins arrive',
+        'Both gourmet carving stations and traditional handi favorites',
+        'Bilingual host making family from abroad feel right at home',
+        'Custom photo booth with fun modern & traditional props'
       ],
-      idealFor: 'Families with cousins and relatives visiting from abroad seeking traditional flavor without overwhelming chaos.'
+      bestFor: 'Overseas families who want modern style with traditional warmth'
     }
   };
 
   const current = themes[activeTab];
 
   return (
-    <section id="styles" className="py-20 lg:py-28 bg-white border-y border-neutral-200/80 relative">
+    <section id="styles" className="py-16 lg:py-24 bg-[#FAFAFA] border-y border-neutral-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-2">
-            Signature Styling System
+        {/* Simple & Clear Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-1.5">
+            Choose Your Theme
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A1A1A] tracking-tight text-balance">
-            UK Contemporary vs. Grand Royal Heritage
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1A1A1A] tracking-tight">
+            UK Contemporary vs. Grand Royal Pakistani
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-neutral-600 leading-relaxed">
-            Whether you desire the clean pastel aesthetics of London or the majestic festive grandeur of Lahore, our master designers execute both with uncompromising precision.
+          <p className="mt-2 text-sm sm:text-base text-neutral-600">
+            Pick the vibe that matches your family best — or mix both.
           </p>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1.5 rounded-2xl bg-[#FAFAFA] border border-[#D4AF37]/35 shadow-xs max-w-full overflow-x-auto">
+        {/* Tab Controls */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex p-1 rounded-2xl bg-white border border-[#D4AF37]/35 shadow-xs max-w-full overflow-x-auto">
             <button
               onClick={() => setActiveTab('uk')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer ${
                 activeTab === 'uk'
-                  ? 'bg-[#1A1A1A] text-white shadow-sm border border-[#D4AF37]/50'
+                  ? 'bg-[#1A1A1A] text-white shadow-xs'
                   : 'text-neutral-600 hover:text-[#1A1A1A]'
               }`}
             >
-              The British Contemporary Style (UK)
+              UK Contemporary Style
             </button>
             <button
               onClick={() => setActiveTab('pakistan')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer ${
                 activeTab === 'pakistan'
-                  ? 'bg-[#1A1A1A] text-white shadow-sm border border-[#D4AF37]/50'
+                  ? 'bg-[#1A1A1A] text-white shadow-xs'
                   : 'text-neutral-600 hover:text-[#1A1A1A]'
               }`}
             >
-              The Grand Royal Heritage Style (Pakistan)
+              Pakistani Royal Heritage
             </button>
             <button
               onClick={() => setActiveTab('fusion')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer ${
                 activeTab === 'fusion'
-                  ? 'bg-[#1A1A1A] text-white shadow-sm border border-[#D4AF37]/50'
+                  ? 'bg-[#1A1A1A] text-white shadow-xs'
                   : 'text-neutral-600 hover:text-[#1A1A1A]'
               }`}
             >
-              The Diaspora Fusion (Hybrid)
+              UK-Pak Fusion
             </button>
           </div>
         </div>
 
-        {/* Dynamic Theme Display Card */}
-        <div className="rounded-3xl bg-[#FAFAFA] border border-[#D4AF37]/30 p-6 sm:p-8 lg:p-12 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Visual Frame */}
-            <div className="lg:col-span-6 order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-lg group">
+        {/* Visual Showcase Card */}
+        <div className="rounded-2xl sm:rounded-3xl bg-white border border-[#D4AF37]/30 p-5 sm:p-8 lg:p-10 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Image on left */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-md group">
                 <img
                   src={current.image}
                   alt={current.title}
                   referrerPolicy="no-referrer"
-                  className="w-full aspect-[16/9] sm:aspect-[4/3] object-cover object-center group-hover:scale-102 transition-transform duration-700"
+                  className="w-full aspect-[4/3] object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Visual Label */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-[#D4AF37]/30">
-                  <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="font-semibold text-neutral-900">{current.atmosphere}</span>
-                    <span className="text-[#D4AF37] font-serif font-bold">Pk Ovsea Curated</span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2 pt-2 border-t border-neutral-100">
-                    <span className="text-[11px] text-neutral-500 uppercase tracking-wider font-semibold">
-                      Color Palette:
-                    </span>
-                    <div className="flex items-center gap-1.5">
-                      {current.colorPalette.map((c, i) => (
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+                <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs p-3 rounded-xl border border-neutral-200/90 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 font-medium text-neutral-800">
+                    <span className="text-[11px] text-neutral-500 uppercase tracking-wider font-semibold">Palette:</span>
+                    <div className="flex items-center gap-1">
+                      {current.palette.map((color, i) => (
                         <div
                           key={i}
-                          className="w-4 h-4 rounded-full border border-neutral-300 shadow-2xs"
-                          style={{ backgroundColor: c }}
-                          title={c}
+                          className="w-3.5 h-3.5 rounded-full border border-neutral-300 shadow-2xs"
+                          style={{ backgroundColor: color }}
                         />
                       ))}
                     </div>
                   </div>
+                  <span className="text-[11px] font-semibold text-[#D4AF37]">Verified Setup</span>
                 </div>
               </div>
             </div>
 
-            {/* Information & Specifications */}
-            <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
+            {/* Concise Specs on right */}
+            <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  {current.badge}
+                <span className="text-xs uppercase tracking-wider text-[#D4AF37] font-bold">
+                  Curated Theme
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A1A1A] mt-1">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A1A1A] mt-1">
                   {current.title}
                 </h3>
-                <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
-                  {current.subtitle}
+                <p className="mt-2 text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  {current.tagline}
                 </p>
               </div>
 
-              {/* Sound & Atmosphere Pill-free block */}
-              <div className="p-4 rounded-xl bg-white border border-neutral-200 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-semibold text-neutral-900">
-                  <Music className="w-4 h-4 text-[#D4AF37]" />
-                  <span>Acoustic &amp; Sonic Curation</span>
-                </div>
-                <p className="text-xs text-neutral-600 leading-relaxed">
-                  {current.musicStyle}
-                </p>
+              {/* Music Pill */}
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-[#FAFAFA] border border-neutral-200 text-xs text-neutral-700">
+                <Music className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <span><strong>Music Vibe:</strong> {current.music}</span>
               </div>
 
-              {/* Key Design Elements */}
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-900 mb-3 flex items-center gap-1.5">
-                  <Flower2 className="w-4 h-4 text-[#D4AF37]" />
-                  <span>Curated Thematic Elements</span>
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {current.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-neutral-700">
-                      <div className="w-4 h-4 rounded-full bg-[#D4AF37]/15 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-2.5 h-2.5 text-[#B8860B]" />
-                      </div>
-                      <span>{feat}</span>
+              {/* Short Highlights */}
+              <div className="space-y-2">
+                {current.highlights.map((h, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs text-neutral-700">
+                    <div className="w-4 h-4 rounded-full bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+                      <Check className="w-2.5 h-2.5 text-[#B8860B]" />
                     </div>
-                  ))}
-                </div>
+                    <span>{h}</span>
+                  </div>
+                ))}
               </div>
 
-              {/* Best Suited For */}
-              <div className="text-xs text-neutral-500 pt-2 border-t border-neutral-200">
-                <span className="font-semibold text-neutral-800">Perfect For:</span> {current.idealFor}
+              <div className="text-xs text-neutral-500 pt-2 border-t border-neutral-100">
+                <span className="font-semibold text-neutral-800">Best For:</span> {current.bestFor}
               </div>
 
-              {/* CTA Action */}
-              <div className="pt-2">
-                <button
-                  onClick={() => onSelectStyle(current.title)}
-                  className="inline-flex items-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white bg-[#1A1A1A] hover:bg-[#2A2A2A] border border-[#D4AF37]/50 rounded-xl transition-all shadow-xs"
-                >
-                  <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-                  <span>Choose This Event Style</span>
-                </button>
-              </div>
+              <button
+                onClick={() => onSelectStyle(current.title)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-[#1A1A1A] hover:bg-[#2A2A2A] rounded-xl transition-colors cursor-pointer"
+              >
+                <span>Select This Theme</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+              </button>
             </div>
           </div>
         </div>
