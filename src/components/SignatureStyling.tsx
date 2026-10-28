@@ -63,23 +63,23 @@ export const SignatureStyling: React.FC<{ onSelectStyle: (styleName: string) => 
   const current = themes[activeTab];
 
   return (
-    <section id="styles" className="py-16 lg:py-24 bg-[#FAFAFA] border-y border-neutral-200/80 relative">
+    <section id="styles" className="py-20 lg:py-32 bg-[#FAFAFA] border-y border-neutral-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Simple & Clear Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-1.5">
+        <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16">
+          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-2">
             Choose Your Theme
           </div>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1A1A1A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A1A1A] tracking-tight">
             UK Contemporary vs. Grand Royal Pakistani
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-neutral-600">
-            Pick the vibe that matches your family best — or mix both.
+          <p className="mt-3 text-sm sm:text-base text-neutral-600 max-w-xl mx-auto">
+            Pick the vibe that matches your family best — or mix both for the ultimate diaspora celebration.
           </p>
         </div>
 
         {/* Tab Controls */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-12">
           <div className="inline-flex p-1 rounded-2xl bg-white border border-[#D4AF37]/35 shadow-xs max-w-full overflow-x-auto">
             <button
               onClick={() => setActiveTab('uk')}

@@ -79,24 +79,24 @@ export const EventMoments: React.FC = () => {
   ];
 
   return (
-    <section id="gallery" className="py-16 lg:py-24 bg-white border-t border-neutral-200/80 relative">
+    <section id="gallery" className="py-20 lg:py-32 bg-white border-t border-neutral-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Visual-First Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-1.5 flex items-center justify-center gap-1.5">
+        <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-2 flex items-center justify-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Real Moments in Pakistan</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1A1A1A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A1A1A] tracking-tight">
             See the Experience in Action
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-neutral-600">
-            Real celebrations planned for families visiting from the UK, US, UAE, and Canada.
+          <p className="mt-3 text-sm sm:text-base text-neutral-600 max-w-xl mx-auto">
+            Real celebrations curated for diaspora families visiting from the UK, US, UAE, and Canada.
           </p>
         </div>
 
-        {/* Visual Masonry / Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        {/* Visual Bento Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {moments.map((item) => (
             <div
               key={item.id}

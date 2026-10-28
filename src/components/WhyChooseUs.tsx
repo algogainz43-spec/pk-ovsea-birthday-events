@@ -72,23 +72,23 @@ export const WhyChooseUs: React.FC<{ onConsult: () => void }> = ({ onConsult }) 
   ];
 
   return (
-    <section id="why-us" className="py-16 lg:py-24 bg-[#FAFAFA] border-b border-neutral-200/80 relative">
+    <section id="why-us" className="py-20 lg:py-32 bg-[#FAFAFA] border-b border-neutral-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Short & friendly header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-1.5">
+        {/* Section Header with Generous Spacing */}
+        <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+          <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-2">
             The Overseas Advantage
           </div>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1A1A1A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A1A1A] tracking-tight">
             Why Families Book With Us
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-neutral-600">
-            Four promises that take the stress out of planning a party in Pakistan.
+          <p className="mt-3 text-sm sm:text-base text-neutral-600 max-w-xl mx-auto">
+            Four promises that remove all stress and guesswork from planning a celebration in Pakistan.
           </p>
         </div>
 
         {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-8 mb-16">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
